@@ -24,7 +24,7 @@ this repo can be cloned and edited as per your needs.
 ![](https://img.shields.io/github/license/iamSampath/iamSampath.github.io) 
 
 ## Usage Documentation
-![] _In Progress_
+_In Progress_
 
 
 

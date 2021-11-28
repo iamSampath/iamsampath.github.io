@@ -16,7 +16,7 @@ body{
     .logo{
         text-decoration: none;
         font-weight: bold;
-        color:black;
+        color:white;
         font-size: 1.4em;
 
         span{
@@ -27,7 +27,7 @@ body{
     nav{
         display: none;
     }
-    
+
     .container{
         display: flex;
         place-content: space-between;
@@ -98,30 +98,27 @@ section.aboutme-section{
 
 .aboutme-img{
     display: none;
+    justify-content: right;
 }
 
 .projects-section{
     background: var(--primary-color);
-    color: white; 
+    color: white;
     ul{
         li{
             background: #006bd6;
             text-align: center;
             padding:2em 1em;
             width: 80%;
-           // margin: 0 auto 5em auto;
+            margin: 0 auto 5em auto;
             border-radius: .5em;
-            margin:-5em
-            blockquote{
-                padding: 0;
-            }
+            margin:-5em;
             img{
                 width:5em;
                 height:5em;
                 border: 2px solid white;
                 border-radius: 20%;
                 margin-top: -4.5em;
-                //#006bd6
             }
         }
     }
@@ -142,22 +139,20 @@ nav{
 
     ul.primary-nav{
         margin-top: 0;
-        li {
-            a{
-                color:black;
-                text-decoration: none;
-                display: block;
-                padding: 0 .5em .5em .5em;
-                font-size: 1.2em;
-                text-align: right;
-
-                &:hover{
-                    font-weight: bold;
-                }
+    }
+    li {
+        a{
+            text-decoration: none;
+            color: var(--primary-color);
+            display: block;
+            padding: 0 .5em .5em .5em;
+            font-size: 1.2em;
+            text-align: right;
+            &:hover{
+                font-weight: bold;
             }
         }
     }
-
 }
 
 .mobile-menu-exit{
@@ -172,22 +167,21 @@ nav{
     .mobile-menu, .mobile-menu-exit{
         display: none;
     }
-    
+
     .navbar.container{
         display: grid;
         grid-template-columns: 180px auto;
-       
+
     }
 
     .navbar nav{
-       display:flex;
-       background: none;
-       justify-content:right;
-       color:black;
-       position:relative;
-       height:auto;
-       width: 100%;
-       padding:0;
+        display:flex;
+        background: none;
+        justify-content:right;
+        position:relative;
+        height:auto;
+        width: 100%;
+        padding:0;
     }
 
     ul{
@@ -195,11 +189,10 @@ nav{
     }
 
     a{
-        color:black;
         font-size: 1em;
         padding: .1em 1em;
     }
-    
+
 
     ul.primary-nav{
         margin:0;
@@ -209,7 +202,7 @@ nav{
         font-weight: bold;
     }
 
-     
+
 }
 
 
@@ -238,23 +231,22 @@ nav{
     }
 
     .aboutme-section .container{
-        display: flex;
+        display: block;
         justify-content: space-between;
-        text-align: left;
+        text-align: justify;
         .aboutme-col{
             margin: 3em 3em 0 5em;
             h1{
                 font-size: 3em;
                 width: 90%;
             }
-            
+
         }
     }
-} 
+}
 
 .profile-img{
     width: 30%;
-    margin: right 8em;
 }
 
 
@@ -268,13 +260,12 @@ nav{
 
 .aboutme-section img{
     display: block;
-    position: relative;
     width: 260px;
-    bottom: -2em;
+    left: -2em;
+    padding-top: 0;
 }
 .aboutme-img{
     width: 30%;
-    margin: right 8em;
 }
 
 
@@ -290,29 +281,27 @@ nav{
     .social{
 
         .social-nav{
-           justify-content: center;
+            justify-content: center;
         }
         ul{
             justify-content: right;
             li{
                 a{
-
                     text-decoration: none;
                     font-size: 1.4em;
                     color:var(--primary-color);
-                    padding: auto;
                     border: 2px solid var(--primary-color);
                     border-radius: .5em;
                     background: none;
-                    text-align: center;   
+                    text-align: center;
                     padding: .6em .6em .6em .6em;
                     width:5em;
                     height:1em;
-                    display: inline-block;       
+                    display: inline-block;
                 }
                 text-align: center;
             }
-        }        
+        }
     }
 }
 

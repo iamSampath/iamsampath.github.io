@@ -19,6 +19,9 @@ this repo can be cloned and edited as per your needs.
 ## Technologies used
 ![](https://img.shields.io/badge/bootstrap-v5.1.2-informational) 
 ![](https://img.shields.io/badge/html-HTML5-informational)
+![](https://img.shields.io/badge/styling-SCSS-informational)
+![](https://img.shields.io/badge/script-javascript-informational)
+
 
 ## License
 ![](https://img.shields.io/github/license/iamSampath/iamSampath.github.io) 

@@ -17,7 +17,6 @@ this repo can be cloned and edited as per your needs.
 3. Push it to your own repository.
 
 ## Technologies used
-![](https://img.shields.io/badge/bootstrap-v5.1.2-informational) 
 ![](https://img.shields.io/badge/html-HTML5-informational)
 ![](https://img.shields.io/badge/styling-SCSS-informational)
 ![](https://img.shields.io/badge/script-javascript-informational)

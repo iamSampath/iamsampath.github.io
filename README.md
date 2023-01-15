@@ -1,8 +1,8 @@
 # iamsampath.github.io
 
-![](https://img.shields.io/badge/version-0.0.1-informative)
+![](https://img.shields.io/badge/version-1.0.0-informative)
 ![](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fiamsampath.github.io)
-![](https://img.shields.io/maintenance/yes/2021)
+![](https://img.shields.io/maintenance/yes/2023)
 ![](https://img.shields.io/github/issues-raw/iamSampath/iamsampath.github.io)
 ![](https://img.shields.io/github/last-commit/iamSampath/iamsampath.github.io)
 ## Introduction

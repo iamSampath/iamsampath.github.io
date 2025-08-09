@@ -1,131 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sampath</title>
-    <link rel="stylesheet" href="css/main.css">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-41BKSWQGR5"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-41BKSWQGR5');
-    </script>
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sampath Medarametla — Program & Product Leader</title>
+  <meta name="description" content="Sampath Medarametla — Strategic operator building AI, Cloud, and platform programs. Founder of CleanView." />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Cinematic Cover — no cards, magazine typography ===== */
+    :root{ --max:1180px; --gutter:28px; --radius:18px; }
+
+    /* Palettes */
+    body{ --bg:#0a0c12; --ink:#eef2ff; --muted:#a4adc0; --rule:#1a2235; --accent:#f4c95d; --accent-ink:#2d2408; --tint:#6ee7ff; }
+    [data-theme="ivory"]{ --bg:#fbf9f5; --ink:#111318; --muted:#5b6374; --rule:#e5ded3; --accent:#0ea5e9; --accent-ink:#052b3c; --tint:#9b87f5; }
+    [data-theme="noir"]{ --bg:#0b0b0e; --ink:#e8f8f2; --muted:#a7c3b9; --rule:#1a2220; --accent:#34d399; --accent-ink:#072218; --tint:#22d3ee; }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; background:var(--bg); color:var(--ink); font-family:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; line-height:1.6}
+    h1,h2{font-family:"Newsreader", serif; letter-spacing:.2px; margin:0}
+    h1{font-size:clamp(40px,7vw,92px); line-height:1.02}
+    h2{font-size:clamp(28px,3.8vw,54px); line-height:1.06}
+    p{margin:0 0 14px}
+    a{color:inherit; text-decoration:none}
+    a.uline{background:linear-gradient(180deg, transparent 70%, color-mix(in oklab, var(--accent) 40%, transparent) 0);}
+
+    .wrap{max-width:var(--max); margin-inline:auto; padding-inline:var(--gutter)}
+
+    /* Filmic backdrop */
+    .cover{position:relative; min-height:86vh; display:flex; align-items:end; overflow:hidden}
+    .cover .backdrop{position:absolute; inset:0; background:
+      radial-gradient(120% 120% at -10% -10%, color-mix(in oklab, var(--tint) 25%, transparent), transparent 60%),
+      radial-gradient(120% 120% at 120% 20%, color-mix(in oklab, var(--accent) 35%, transparent), transparent 60%),
+      linear-gradient(180deg, transparent 30%, rgba(0,0,0,.28));
+      filter:blur(24px); opacity:.9; z-index:-2}
+    .cover .diagonal{position:absolute; inset:auto 0 0 0; height:44vh; background:linear-gradient(120deg, color-mix(in oklab, var(--tint) 16%, transparent), transparent 35%), linear-gradient(180deg, rgba(255,255,255,.06), transparent 60%); clip-path:polygon(0 0,100% 18%,100% 100%,0 100%); z-index:-1}
+    .mast{padding-block:14vh 6vh}
+    .kicker{display:inline-flex; gap:10px; align-items:center; font-weight:800; letter-spacing:.18em; text-transform:uppercase; font-size:12px; color:var(--muted)}
+    .kicker::before{content:""; width:30px; height:1px; background:var(--muted)}
+    .lede{font-size:clamp(18px,1.6vw,22px); color:var(--muted); max-width:78ch}
+
+    .actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .chip{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; border:1px solid color-mix(in oklab, var(--ink) 18%, transparent); background:rgba(255,255,255,.06)}
+    .chip.primary{border-color: color-mix(in oklab, var(--accent) 40%, transparent); background:linear-gradient(180deg, color-mix(in oklab, var(--accent) 18%, transparent), transparent)}
+
+    /* Sub‑nav */
+    .topbar{position:fixed; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:center; padding:14px clamp(16px, 4vw, 32px); backdrop-filter:saturate(120%) blur(8px); border-bottom:1px solid var(--rule); background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,0)); z-index:30}
+    .brand{display:flex; align-items:center; gap:10px}
+    .dot{width:34px; height:34px; border-radius:999px; background:radial-gradient(120% 120% at 20% 20%, var(--accent) 0%, transparent 55%), #0006; box-shadow:inset 0 0 0 1px #fff2}
+    .nav{display:flex; gap:18px; align-items:center}
+    .sw{width:26px; height:26px; border-radius:999px; border:1px solid #fff2; cursor:pointer}
+    .sw[data-t="midnight"]{background:conic-gradient(var(--accent),#fff2,#000,var(--tint))}
+    .sw[data-t="ivory"]{background:conic-gradient(#0ea5e9,#eab308,#111,#0ea5e9)}
+    .sw[data-t="noir"]{background:conic-gradient(#34d399,#22d3ee,#000,#34d399)}
+
+    /* Sections */
+    section{padding-block:56px}
+    .rule{height:1px; background:var(--rule); margin:24px 0}
+
+    /* Credo — large lines, no boxes */
+    .credo{display:grid; gap:18px; max-width:92ch}
+    .line{font-weight:800; font-size:clamp(18px,2vw,22px)}
+
+    /* Programs — narrative list */
+    .programs{max-width:92ch}
+    .programs h3{font-family:"Inter"; font-weight:800; text-transform:uppercase; letter-spacing:.16em; font-size:12px; color:var(--muted); margin:0 0 10px}
+    .program{margin:18px 0}
+    .program .title{font-weight:800}
+    .program .meta{color:var(--muted)}
+
+    /* Quote */
+    blockquote{font-size:clamp(22px,2.4vw,30px); margin:0; padding-left:22px; border-left:3px solid var(--accent); color:var(--ink)}
+
+    /* Footer */
+    footer{padding:28px 0; border-top:1px solid var(--rule); color:var(--muted)}
+
+    /* Reveal */
+    .reveal{opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s ease}
+    .reveal.show{opacity:1; transform:none}
+      
+    /* Headshot (adds to the cinematic cover) */
+    .headshot-wrap{position:absolute; right:clamp(16px,6vw,64px); top:clamp(80px,14vh,160px); width:min(30vw,340px); aspect-ratio:1/1; border-radius:18px; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.35); border:1px solid color-mix(in oklab, var(--ink) 16%, transparent); background:linear-gradient(180deg, rgba(255,255,255,.06), transparent)}
+    .headshot{width:100%; height:100%; object-fit:cover; display:block;}
+    .headshot-ring{position:absolute; inset:0; pointer-events:none; background:radial-gradient(120% 120% at 20% 10%, color-mix(in oklab, var(--tint) 16%, transparent), transparent 60%); mix-blend-mode:soft-light}
+    @media (max-width: 980px){
+      .headshot-wrap{position:static; width:180px; margin:22px auto 0; border-radius:20px}
+      .cover{align-items:center}
+      .mast{padding-block:18vh 6vh; text-align:center}
+    }
+  
+
+    /* Experience timeline */
+    .timeline{position:relative; margin-top:6px}
+    .timeline .bar{position:absolute; left:10px; top:2px; bottom:2px; width:2px; background:var(--rule)}
+    .exp{position:relative; padding-left:44px; padding-block:18px}
+    .exp .dot{position:absolute; left:3px; top:28px; width:12px; height:12px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px color-mix(in oklab, var(--accent) 22%, transparent)}
+    .exp .role{font-weight:800}
+    .exp .meta{color:var(--muted)}
+    .exp ul{margin:8px 0 0 0; padding-left:18px}
+    .exp li{margin:6px 0}
+
+    /* Skill tags */
+    .skill-grid{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:18px; max-width:1000px}
+    @media (max-width: 900px){ .skill-grid{grid-template-columns:1fr} }
+    .skill-block h4{margin:0 0 8px; font-family:"Inter"; font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+    .tags{display:flex; flex-wrap:wrap; gap:8px}
+    .tag{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid color-mix(in oklab, var(--ink) 18%, transparent); background:rgba(255,255,255,.04)}
+  </style>
 </head>
-<body>
-<!-- Navbar -->
-<div class="navbar">
-    <div class="container">
-        <a href="#" class="logo">Sampath<span>Medarametla</span></a>
-        <img class="mobile-menu" id="mobile-cta" src="./imgs/icons/menu.svg" alt="menu icon for navigation items">
-        <nav>
-            <img src="./imgs/icons/x-icon.svg" class="mobile-menu-exit" id="mobile-exit" alt="">
-            <ul class="primary-nav">
-                <li class="active"><a style="color: #007Af3;" href="#">Home</a></li>
-                <li><a href="index.html#aboutme-section" style="color: #007Af3;">About me</a></li>
-                <li><a href="index.html#projects-section" style="color: #007Af3;">projects</a></li>
-            </ul>
-        </nav>
+<body data-theme="midnight">
+  <div class="topbar">
+    <div class="brand">
+      <div class="dot" aria-hidden="true"></div>
+      <div style="font-weight:800">Sampath Medarametla</div>
     </div>
-</div>
-<!-- Navbar end-->
+    <div class="nav">
+      <a href="#experience">Experience</a>
+      <a href="#work">Highlights</a>
+      <a href="#skills">Skills</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+      <span style="opacity:.7; font-size:14px">Theme</span>
+      <button class="sw" data-t="midnight" title="Midnight Gold"></button>
+      <button class="sw" data-t="ivory" title="Ivory Noir"></button>
+      <button class="sw" data-t="noir" title="Noir Mint"></button>
+    </div>
+  </div>
 
-<section class="hero">
-    <div class="container">
-        <div class="left-col">
-            <p class="subhead">Hey I'm</p>
-            <h1>Sampath Medarametla,PMP</h1>
-            <p class="subhead">Program Manager | Project Manager </p>
-            
+  <header class="cover">
+    <div class="backdrop" aria-hidden="true"></div>
+    <div class="diagonal" aria-hidden="true"></div>
+    <div class="backdrop" aria-hidden="true"></div>
+    <div class="diagonal" aria-hidden="true"></div>
+    <div class="wrap mast">
+      <div class="kicker">Program Manager | Project Manager | AI & Cloud Delivery Leader</div>
+      <h1>Strategic Program Manager — AI, Cloud & Platform Delivery</h1>
+      <p class="lede">Strategic Program Manager with 8+ years of experience leading global AI, Cloud, and platform engineering initiatives. Proven track record of delivering large-scale programs through hands-on leadership in program strategy, cross-functional execution, and stakeholder alignment across AWS and Azure environments. Adept at optimizing operations, scaling solutions, and driving measurable business impact. Focused on innovation at scale through data-driven decision-making, clear communication, and operational excellence.</p>
+    </div>
+      <div class="headshot-wrap" title="Sampath Medarametla portrait">
+      <!-- Replace the src below with your repo path, e.g., /assets/sampath-headshot.jpg -->
+      <img class="headshot" src="https://iamsampath.github.io/imgs/icons/aboutme.png" alt="Portrait of Sampath Medarametla" />
+      <span class="headshot-ring" aria-hidden="true"></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap reveal">
+      <h2>Leadership Principles</h2>
+      <div class="rule" aria-hidden="true"></div>
+      <div class="credo">
+        <div class="line"><strong>Strategy → execution:</strong> turn goals into OKRs, roadmaps, and weekly results.</div>
+        <div class="line"><strong>Data over opinions:</strong> instrument leading indicators and make risks visible early.</div>
+        <div class="line"><strong>Ship in small slices:</strong> release, measure, iterate; add process only where it speeds delivery.</div>
+      </div>
+        <div class="line">Truth over theater. Measure leading indicators; manage by exception; surface risk early.</div>
+        <div class="line">Ship, then sharpen. Release small; tighten the loop; make learning the operating system.</div>
+      </div>
+    </section>
+
+    <section id="work" class="wrap reveal">
+      <div class="programs">
+        <h3>Selected Work</h3>
+        <div class="rule" aria-hidden="true"></div>
+        <p class="program"><span class="title">EATH Portfolio → Conversational Help.</span> Unified IVR, social re‑platforming, and chat into a measurable portfolio with exec dashboards and dependency mapping. <span class="meta">Impact: shorter time‑to‑resolution; predictable releases; crisp governance cadence.</span></p>
+        <p class="program"><span class="title">Search & ML Program Enablement.</span> Cross‑team roadmap, model evaluation gates, rollout playbooks; vendor alignment; experimentation guardrails. <span class="meta">Impact: higher relevance; auditable deployments; fewer regression rollbacks.</span></p>
+        <p class="program"><span class="title">CleanView — Founder/Operator.</span> Minimal, privacy‑first PDF app for Win/macOS with release automation, theming, annotations, and print. <span class="meta">Impact: lightweight alternative to bloatware; growing adoption.</span></p>
+        <p class="program"><span class="title">Monivue — Personal Finance Ops.</span> JavaFX desktop app: watchlists, alerts, themes. Packaged to MSI/PKG; dark/light; auto‑refresh. <span class="meta">Impact: fast analytics; reusable UX patterns.</span></p>
+      </div>
+    </section>
+
+    <section id="experience" class="wrap reveal">
+      <h2>Experience</h2>
+      <div class="rule" aria-hidden="true"></div>
+      <div class="timeline">
+        <div class="bar" aria-hidden="true"></div>
+        <article class="exp">
+          <div class="dot" aria-hidden="true"></div>
+          <div class="role">Program Manager — eBay Inc</div>
+          <div class="meta">Austin, TX · Oct 2021 – Present</div>
+          <ul>
+            <li>Led global rollout of a generative AI chatbot across 5 countries, streamlining support and improving CSAT.</li>
+            <li>Owned vendor partnerships (Kore, Genesys) and alignment across engineering, product, and stakeholders.</li>
+            <li>Migrated Kore’s AI stack to AWS, improving latency by <strong>15%</strong> and infrastructure efficiency.</li>
+            <li>Delivered IVR for Canada with zero downtime and seamless backend integrations.</li>
+            <li>Instituted weekly exec reporting, risk logs, and stakeholder dashboards for program transparency.</li>
+            <li>Built program frameworks and tooling to support AI-driven CX workflows across 5 countries.</li>
+            <li>Partnered with data ops on labeling criteria and quality metrics for model training.</li>
+          </ul>
+        </article>
+        <article class="exp">
+          <div class="dot" aria-hidden="true"></div>
+          <div class="role">Project Manager — eBay Inc</div>
+          <div class="meta">San Jose, CA · Sep 2019 – Sep 2021</div>
+          <ul>
+            <li>Implemented Cypress automation, reducing QA cycle by <strong>3 days</strong> per release.</li>
+            <li>Drove CI/CD change management with minimal disruption to delivery.</li>
+            <li>Coordinated integration of microservices and KYC APIs across compliance, backend, and DevOps.</li>
+            <li>Optimized throughput via Agile practices, cutting backlog by <strong>20%</strong>.</li>
+          </ul>
+        </article>
+        <article class="exp">
+          <div class="dot" aria-hidden="true"></div>
+          <div class="role">Project Lead — eBay Inc</div>
+          <div class="meta">Seattle, WA · Apr 2016 – Sep 2019</div>
+          <ul>
+            <li>Built a custom CMS, lowering content ops costs by <strong>30%</strong> and serving 8+ channels.</li>
+            <li>Led the “Espresso” email framework, increasing marketing ops efficiency by <strong>15%</strong>.</li>
+            <li>Executed 200M+ personalized & non‑personalized communications across 12 countries with a 4‑person ops team.</li>
+            <li>Drove Agile transformation: +25% velocity, −15% delivery cycle time.</li>
+          </ul>
+        </article>
+        <article class="exp">
+          <div class="dot" aria-hidden="true"></div>
+          <div class="role">Systems Analyst — Google India</div>
+          <div class="meta">Hyderabad, Telangana · Feb 2013 – Jul 2014</div>
+          <ul>
+            <li>Enhanced Maps crowdsource tool, improving code accuracy by <strong>80%</strong> and user trust.</li>
+            <li>Trained ML algorithms achieving <strong>95%</strong> accuracy in image classification.</li>
+            <li>Streamlined onboarding processes, improving team efficiency by <strong>5%</strong>.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="wrap reveal">
+      <h2>Skills</h2>
+      <div class="rule" aria-hidden="true"></div>
+      <div class="skill-grid">
+        <div class="skill-block">
+          <h4>AI & Cloud</h4>
+          <div class="tags">
+            <span class="tag">Conversational/Gen AI</span>
+            <span class="tag">IVR Systems</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Image Classification</span>
+            <span class="tag">Cloud Migration (AWS)</span>
+          </div>
         </div>
-        <img src="./imgs/icons/aboutme.png" class="profile-img" alt="Profile picture of Sampath Medarametla">
-    </div>
-</section>
-
-<section class="aboutme-section" id="aboutme-section">
-    <h1 align="center">About me</h1>
-    <div class="container">
-        <div class="aboutme-col">
-            <p>
-                Hi! I'm Sampath Medarametla, a Program/Project Manager, Product Enthusiast, and accomplished 
-                Team Lead with experience working on e-commerce, Search, ML, and Digital Marketing programs.
-                I have a proven track record of leading global teams and delivering successful projects.
-            </p>
-            <p>
-                I graduated from Murray State University with a specialization in Information Systems. 
-                I'm passionate about using technology to positively impact the world. 
-                I'm also a strong believer in knowledge sharing, and I love to write about my experiences and insights in the hopes of helping others.
-            </p>
-            <P>
-                I enjoy traveling, volunteering, reading, mentoring, and watching the night sky in my free time.
-            </P>
-            <h3>Why I do what I do</h3>
-            <p>
-               I believe in working for something that could make human lives better. 
-               That's why I'm passionate about project management and product development. 
-               I love the challenge of taking a complex problem and breaking it down into manageable steps. 
-               I also enjoy working with teams of talented people to bring new products and services to life.
-            </p>
-            <p>
-                I'm also a strong supporter of knowledge sharing. I believe that knowledge is a two-way street between the self and the world. 
-                That's why I occasionally write about my experiences and insights in the hopes of helping others.
-            </p>
-            <p>
-                I hope this intro gives you a better sense of who I am and what I do. I am open to collaborating on projects which could
-                potentially make a difference for people, have one such idea ?, Don't hesitate to contact me.
-            </p>
+        <div class="skill-block">
+          <h4>Program Management</h4>
+          <div class="tags">
+            <span class="tag">PI Planning</span>
+            <span class="tag">Risk & Mitigation</span>
+            <span class="tag">Stakeholder Management</span>
+            <span class="tag">PMO Routines</span>
+            <span class="tag">Executive Reporting</span>
+          </div>
         </div>
-    </div>
-</section>
-
-<section class="projects-section" id="projects-section">
-    <div class="container">
-        <ul>
-            <li>
-                <img src="./imgs/icons/iot.svg" alt="">
-                <blockquote align="left">
-                    Managed and built a User Interface for  "Meeting room finder," which helped colleagues to locate a meeting room available in the office space without friction.
-                    It utilizes the room data (temperature, light) acquired from the meeting room sensors and suggests an empty Meeting space based on the data.
-                    The project is intelligent enough to predict and suggest available Meeting spaces. 
-                </blockquote>
-            </li>
-        </ul>
-    </div>
-</section>
-
-<section class="social-section">
-    <h1 align="center">Let's connect</h1>
-    <div class="container">
-        <div class="social">
-            <ul class="social-nav">
-                <li><a href="https://www.linkedin.com/in/smedarametla/" target="_blank">Linkedin</a></li>
-                <li><a href="https://github.com/iamSampath" target="_blank">Github</a></li>
-                <li><a href="mailto:sampathkm09@yahoo.com">Email</a></li>
-                <li><a href="https://medium.com/@thethoughtgalvanizer" target="_blank">Medium</a></li>
-            </ul>
+        <div class="skill-block">
+          <h4>Agile & Delivery</h4>
+          <div class="tags">
+            <span class="tag">Scrum</span>
+            <span class="tag">Kanban</span>
+            <span class="tag">SDLC</span>
+            <span class="tag">Sprint Planning</span>
+          </div>
         </div>
+        <div class="skill-block">
+          <h4>Tools & Platforms</h4>
+          <div class="tags">
+            <span class="tag">Jira</span>
+            <span class="tag">Smartsheet</span>
+            <span class="tag">Confluence</span>
+            <span class="tag">Tableau</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">PowerPoint</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <h4>Technical</h4>
+          <div class="tags">
+            <span class="tag">AWS</span>
+            <span class="tag">Google Cloud</span>
+            <span class="tag">Java</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Cypress</span>
+            <span class="tag">Git</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="credentials" class="wrap reveal">
+      <h2>Credentials</h2>
+      <div class="rule" aria-hidden="true"></div>
+      <p><strong>Education:</strong> M.S., Information Systems — Murray State University (Murray, KY)</p>
+      <p><strong>Certifications:</strong> Project Management Professional (PMP) — 01/2023–01/2029</p>
+      <p><strong>Involvement:</strong> AITP — coordinated weekly STEM tutoring for ~20 students; led charity events raising $5K for the business department. IT's Elite Club — led 5 committees to organize campus events and drive engagement.</p>
+    </section>
+
+    <section class="wrap reveal">
+      <h2>Thesis</h2>
+      <div class="rule" aria-hidden="true"></div>
+      <blockquote>Ship value early, keep the feedback loop tight, and let teams move at the speed of clarity.</blockquote>
+    </section>
+
+    <section id="writing" class="wrap reveal">
+      <h2>Writing</h2>
+      <div class="rule" aria-hidden="true"></div>
+      <p><a class="uline" href="https://medium.com/@sampathkmpm" target="_blank" rel="noopener">Essays on program leadership</a> · <a class="uline" href="#">Program Ops for AI Platforms (slides)</a></p>
+    </section>
+
+    <section id="contact" class="wrap reveal">
+      <h2>Advising & Contact</h2>
+      <div class="rule" aria-hidden="true"></div>
+      <p><strong>Advisory:</strong> early product teams needing program muscle (cadence, metrics, decision rituals). Limited slots.</p>
+      <p style="opacity:.8">Availability: nights & weekends (US Central).</p>
+    </section>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap" style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap">
+      <div>© <span id="year"></span> — Sampath Medarametla</div>
+      <div style="opacity:.7">Program Manager · Project Manager · AI & Cloud Delivery</div>
     </div>
-</section>
+  </footer>
 
-<section class="footer">
-    <p align="center">&copy;<script type="text/JavaScript"> document.write(new Date().getFullYear());        
-    </script> Sampath Medarametla</p>  
-</section>
-
-<script>
-    const mobileBtn = document.getElementById('mobile-cta')
-    nav = document.querySelector('nav')
-    mobileBtnExit = document.getElementById('mobile-exit');
-    mobileBtn.addEventListener('click', () => {
-        nav .classList.add('menu-btn');
-    })
-    mobileBtnExit.addEventListener('click', () => {
-        nav .classList.remove('menu-btn');
-    })
-</script>
+  <script>
+    // Theme switcher
+    const b=document.body; const saved=localStorage.getItem('themeChoiceV4'); if(saved){ b.setAttribute('data-theme', saved); }
+    document.querySelectorAll('.sw').forEach(s=>s.addEventListener('click',()=>{const t=s.dataset.t; b.setAttribute('data-theme', t); localStorage.setItem('themeChoiceV4', t);}));
+    // Reveal on scroll
+    const io = new IntersectionObserver(es=> es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} }),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
-</html>
+</html>       
